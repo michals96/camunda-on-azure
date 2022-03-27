@@ -51,12 +51,14 @@ Before the zip file of the freshly generated project can be returned by the back
 and it creates the Azure repository with the chosen Spring Boot and Camunda application and it creates build and infrastructure pipelines which are ready to be used. This part is
 extremely important - we need to notice that at this point the client is not only provided with a Spring Boot & Camunda application with custom features, but
 also with a pipelines, that are ready to be run, so the effort that usually needs to take place when creating cloud resources and whole deployment infrastructure is
-gone. This approach is called IAAC (infrastructure as a code) and is a huge enablement for the developer teams.
-  
-## Concept Building Paragraph
-This is where you'll build on the topic you introduced in your lede and introduction. It's an
-opportunity to dig deeper into the concept you outlined. This can include going into more detail
-about:
+gone. This approach is called IAAC (infrastructure as a code) and is a huge enablement for the developer teams. Once this part is finished,
+the client ends up with the necessary cloud infrastructure and a Spring Boot & Camunda application which is already in Azure repository,
+but in addition a client also gets to download a ZIP archive of the project.
+
+![image info](./azure.png)
+
+
+## Conclusion
 * Your use case, including how Camunda and/or process automation has helped your
   organization
 * An interesting customer success story made possible with process automation
@@ -64,25 +66,17 @@ about:
 * Why you chose a particular technology, built a specific project, or worked on a piece of
   software
 * How you applied what you learned in your introduction
-
-## Conclusion
+  Let the reader know they’ve made it to the end. Finish your post with a brief restatement of your
+  main point. Tell the reader you hope they found your post helpful and encourage them to get
+  started with your idea.
+  
+-----------------
 * the platform is easily accessible,
 * it is a guidance for developers who are trying to introduce Camunda projects on cloud,
 * the platform saves not only a lot of engineering effort, but an estimated cost of millions of euro,
 * the presence of the platform creates developer friendly standards in the company organizations,
 * the platform reduces the need of customizing Camunda through boilerplate code by using production ready solutions or solution patterns
 * this approach allows to quickly introduce highly scalable Camunda based applications on cloud without a lot of specialized knowledge
-
-## (Optional) Further Exploration Paragraph
-Here's where you can dig into complex topics, back up a customer use case story with
-interesting data, or really show off some in-depth code or a technical process. This paragraph is
-also an opportunity to explore how you implemented any solutions you outlined above and what
-steps you plan to take in the future
-
-## Conclusion
-Let the reader know they’ve made it to the end. Finish your post with a brief restatement of your
-main point. Tell the reader you hope they found your post helpful and encourage them to get
-started with your idea.
 
 ## Key Takeaways and CTAs
 Here's where you can highlight the top 3-4 key takeaways a reader can bring back to their
@@ -95,50 +89,3 @@ each of your paragraphs. For example:
   Close out your post with an explicit call to action that says what you’d like the reader to do next:
   sign up for an account, use a particular feature, build something, etc. If nothing else, ask the
   reader to leave you a comment about the post or join us on the Camunda community forums.
-
-@startuml
-actor Client as client
-participant Frontend as shop
-participant AzureAD as azuread
-participant Backend as backend
-participant AzureDevOps as devops
-
-client -> shop: Enter UI layer
-activate shop
-
-shop --> client: redirect /oauth2/authorize
-deactivate shop
-
-client -> azuread: /oauth/authorize
-activate azuread
-
-azuread --> client: redirect
-deactivate azuread
-
-client -> shop: select Camunda's project configuration
-activate shop
-
-shop -> backend: generate project
-activate backend
-backend -> backend: generate source code with chosen Camunda features
-
-backend -> devops: create Azure repository
-activate devops
-devops --> backend: return value
-deactivate devops
-
-backend -> devops: create build pipelines
-activate devops
-devops --> backend: return value
-deactivate devops
-
-backend -> devops: create infrastructure pipelines
-activate devops
-devops --> backend: return value
-deactivate devops
-
-backend --> shop: return ZIP project
-deactivate backend
-shop --> client: return ZIP project
-deactivate shop
-@enduml
