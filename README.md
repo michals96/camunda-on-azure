@@ -1,7 +1,7 @@
 ---
 author: Michal Stefaniuk, Software Engineer at Devapo (www.devapo.io)
 
-# An Azure platform for quick Camunda enablement
+# Simple business case of an Azure platform for quick Camunda enablement
 Nowadays many companies from banking sector are moving towards business process automation. 
 Where there is a process, a tool like Camunda could be introduced. 
 Another approach which seems to be very trendy these days would be migrating to cloud. These two solutions combined
@@ -14,7 +14,7 @@ major changes in the existing implementation.
 Here at Devapo, as an official Camunda partner, for one of our clients from the banking sector we develop a solution, which intends to enable developer
 teams to quickly move to Azure cloud with Camunda. In this article I would like to present this concept on its technical level as well its business implications.
 
-## How the platform is utilized? The concept's walkthrough
+## How is the platform implemented? The concept's walkthrough
 The goal of the platform was to allow developer teams to quickly move with their Camunda products to Azure cloud. The platform is mainly focused
 on automating the process of creating Azure repository, pipelines, including build and infrastructure ones thorugh Azure DevOps REST API.
 It's user interface allows to simply select the configuration and particular features that the client is interested in. This concept bridges the gaps
@@ -67,10 +67,10 @@ standards in the organization, many custom Camunda features had to be introduced
 challenges. It occurred to be a huge success to have a possibility to enable projects with custom Camunda features on Azure cloud with a blink
 of an eye and it turned out to be an investment that reduced development cost significantly. Now, not only the challenge was solved but also 
 the platform exists up until today and is used by clients also for placing orders for new custom Camunda features, which also allows them to 
-be more concentrated on external vendor's particular business cases, while their casual struggle for providing custom Camunda features is not 
+be more concentrated on external vendor's particular business cases, while their casual struggle for providing custom Camunda features on Azure is not 
 theirs to worry anymore.
 
-It is fair to say that the generic platform for Camunda solutions on cloud was a huge success in the organization. To summorize:
+It is fair to say that the generic platform for Camunda solutions on cloud was a huge success in the organization. To summarize:
 * the platform is easily accessible
 * it is a guidance for developers who are trying to introduce Camunda projects on cloud
 * the platform saves not only a lot of engineering effort, but an estimated cost of millions of euro
@@ -78,14 +78,5 @@ It is fair to say that the generic platform for Camunda solutions on cloud was a
 * the platform reduces the need of customizing Camunda through boilerplate code by using production ready solutions or solution patterns
 * this approach allows to quickly introduce highly scalable Camunda based applications on cloud without a lot of specialized knowledge
 
-## Key Takeaways and CTAs
-Here's where you can highlight the top 3-4 key takeaways a reader can bring back to their
-organization after having read your article. These are high-level, one-sentence summaries of
-each of your paragraphs. For example:
-* Here's how you implement process automation
-* Why our organization chose Camunda
-* Relying on data is important
-* In the end, automation = success
-  Close out your post with an explicit call to action that says what you’d like the reader to do next:
-  sign up for an account, use a particular feature, build something, etc. If nothing else, ask the
-  reader to leave you a comment about the post or join us on the Camunda community forums.
+In the end automation usually means success. From our point of view automation happens not only when it comes to external vendors requirements,
+but also within the organization that depends on quick implementation of Camunda solutions on cloud.
