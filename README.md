@@ -8,18 +8,17 @@ Another approach which seems to be very trendy these days would be migrating to 
 present a huge scale of possibilities, but as they say, with great power comes great responsibility.
 
 Introducing new tools into your architecture sometimes might be really tricky, especially if your project is already live
-in the production environment. Moving with your product to cloud might be even more challenging, as this usually it requires
+in the production environment. Moving with your product to cloud might be even more challenging, as this usually requires
 major changes in the existing implementation.
 
 Here at Devapo, as an official Camunda partner, for one of our clients from the banking sector we develop a solution, which intends to enable developer
 teams to quickly move to Azure cloud with Camunda. In this article I would like to present this concept on its technical level as well its business implications.
 
-## Introductory Paragraph
-The body of your post provides the substance that supports your main idea or explains the
-solution you found to the problem you’ve established above.
-Try to include screenshots, code snippets, and gifs to illustrate the steps that you’re taking along
-the way.
-
+## How the platform is utilized? The concept's walkthrough
+The goal of the platform was to allow developer teams to quickly move with their Camunda products to Azure cloud. The platform is mainly focused
+on automating the process of creating Azure repository, pipelines, including build and infrastructure ones thorugh Azure DevOps REST API.
+It's user interface allows to simply select the configuration and particular features that the client is interested in. This concept bridges the gaps
+between integrations and bringing features to production.
 
 ## Concept Building Paragraph
 This is where you'll build on the topic you introduced in your lede and introduction. It's an
@@ -55,3 +54,50 @@ each of your paragraphs. For example:
   Close out your post with an explicit call to action that says what you’d like the reader to do next:
   sign up for an account, use a particular feature, build something, etc. If nothing else, ask the
   reader to leave you a comment about the post or join us on the Camunda community forums.
+
+@startuml
+actor Client as client
+participant Frontend as shop
+participant AzureAD as azuread
+participant Backend as backend
+participant AzureDevOps as devops
+
+client -> shop: Enter UI layer
+activate shop
+
+shop --> client: redirect /oauth2/authorize
+deactivate shop
+
+client -> azuread: /oauth/authorize
+activate azuread
+
+azuread --> client: redirect
+deactivate azuread
+
+client -> shop: select Camunda's project configuration
+activate shop
+
+shop -> backend: generate project
+activate backend
+backend -> backend: generate source code with chosen Camunda features
+
+backend -> devops: create Azure repository
+activate devops
+devops --> backend: return value
+deactivate devops
+
+backend -> devops: create build pipelines
+activate devops
+devops --> backend: return value
+deactivate devops
+
+backend -> devops: create infrastructure pipelines
+activate devops
+devops --> backend: return value
+deactivate devops
+
+backend --> shop: return ZIP project
+deactivate backend
+shop --> client: return ZIP project
+deactivate shop
+@enduml
