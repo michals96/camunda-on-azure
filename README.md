@@ -18,8 +18,41 @@ teams to quickly move to Azure cloud with Camunda. In this article I would like 
 The goal of the platform was to allow developer teams to quickly move with their Camunda products to Azure cloud. The platform is mainly focused
 on automating the process of creating Azure repository, pipelines, including build and infrastructure ones thorugh Azure DevOps REST API.
 It's user interface allows to simply select the configuration and particular features that the client is interested in. This concept bridges the gaps
-between integrations and bringing features to production.
+between integrations and bringing custom Camunda features to production.
 
+![image info](./msc.png)
+
+Once the user accesses the fronted of the platform, authentication and authorization against the Azure AD service begins. After a successful authorization
+, the user is prompted with a form that allows to select the project configuration. Among those options, the client can choose particular dependencies, their versions, custom features and the environment's setup. The platform
+allows generating only the projects with embedded edition of Camunda, however the development effort is reduced significantly. The custom
+features that the platform provides are for instance
+
+* Camunda Custom Identity service,
+* Camunda with LDAP,
+* Camunda with Azure AD authentication and authorization,
+* Camunda with Azure SQL Database and automated database migrations,
+* Camunda event-driven by Azure Functions,
+* Camunda with secrets stored in Azure Key Vault,
+* Camunda with process definitions stored in Azure Blob,
+* Camunda delegates with Azure Service Bus connectivity
+
+and many others. Once the platform's client chooses the particular configuration, the frontend layer communicates with the backend 
+through a http POST, that contains in it's the body all the configuration that the client chose. The backend layer is very simple - it is a Spring Boot application that implements the official Spring initializr project (https://github.com/spring-io/initializr).
+From a technical point of view, it contains three packages.
+* generator - contains java Beans that implement so called `contributor` classes provided by Spring intializer and they describe the way that the 
+  project should be generated regarding the configuration in the HTTP Post request. It is responsible to utilize the logic on which of the custom Camunda features should
+  be included in the project generation.
+* metadata - this package holds the template of the project files which will be used in the project generation (like *java files, *bpmn files or any other static resources necessary for a Spring Boot & Camunda application). This package is also
+responsible for generation of Spring Boot configuration and it will be used by the contributor classes called in `generator` package.
+* web - the last package is the one that holds a bunch of controllers and is responsible for receiving HTTP requests. It also delegates the project generation
+to the particular contributor class of `generator` package after parsing HTTP requests body content.
+  
+Before the zip file of the freshly generated project can be returned by the backend, it does one more thing - through the REST template it communicates with the Azure DevOps API
+and it creates the Azure repository with the chosen Spring Boot and Camunda application and it creates build and infrastructure pipelines which are ready to be used. This part is
+extremely important - we need to notice that at this point the client is not only provided with a Spring Boot & Camunda application with custom features, but
+also with a pipelines, that are ready to be run, so the effort that usually needs to take place when creating cloud resources and whole deployment infrastructure is
+gone. This approach is called IAAC (infrastructure as a code) and is a huge enablement for the developer teams.
+  
 ## Concept Building Paragraph
 This is where you'll build on the topic you introduced in your lede and introduction. It's an
 opportunity to dig deeper into the concept you outlined. This can include going into more detail
@@ -31,6 +64,14 @@ about:
 * Why you chose a particular technology, built a specific project, or worked on a piece of
   software
 * How you applied what you learned in your introduction
+
+## Conclusion
+* the platform is easily accessible,
+* it is a guidance for developers who are trying to introduce Camunda projects on cloud,
+* the platform saves not only a lot of engineering effort, but an estimated cost of millions of euro,
+* the presence of the platform creates developer friendly standards in the company organizations,
+* the platform reduces the need of customizing Camunda through boilerplate code by using production ready solutions or solution patterns
+* this approach allows to quickly introduce highly scalable Camunda based applications on cloud without a lot of specialized knowledge
 
 ## (Optional) Further Exploration Paragraph
 Here's where you can dig into complex topics, back up a customer use case story with
