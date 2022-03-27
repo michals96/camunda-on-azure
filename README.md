@@ -2,7 +2,7 @@
 author: Michal Stefaniuk, Software Engineer at Devapo (www.devapo.io)
 
 # An Azure platform for quick Camunda enablement
-Nowadays many companies from banking sector are moving towards process business automation. 
+Nowadays many companies from banking sector are moving towards business process automation. 
 Where there is a process, a tool like Camunda could be introduced. 
 Another approach which seems to be very trendy these days would be migrating to cloud. These two solutions combined
 present a huge scale of possibilities, but as they say, with great power comes great responsibility.
@@ -59,22 +59,22 @@ but in addition a client also gets to download a ZIP archive of the project.
 
 
 ## Conclusion
-* Your use case, including how Camunda and/or process automation has helped your
-  organization
-* An interesting customer success story made possible with process automation
-* How you solved a problem or challenge you were facing
-* Why you chose a particular technology, built a specific project, or worked on a piece of
-  software
-* How you applied what you learned in your introduction
-  Let the reader know they’ve made it to the end. Finish your post with a brief restatement of your
-  main point. Tell the reader you hope they found your post helpful and encourage them to get
-  started with your idea.
   
------------------
-* the platform is easily accessible,
-* it is a guidance for developers who are trying to introduce Camunda projects on cloud,
-* the platform saves not only a lot of engineering effort, but an estimated cost of millions of euro,
-* the presence of the platform creates developer friendly standards in the company organizations,
+The business case for this platform was rather simple. In large organization of a company from banking sector, with a several dozen on developer teams, most of them
+decided to go for a business process automation with Camunda. The challenge was that most of those teams had to face similar issues,
+regarding on setting up proper cloud infrastructure for Camunda & Spring Boot applications and of course to be aligned with the developer
+standards in the organization, many custom Camunda features had to be introduced. This platform allowed to be in ahead of most of these
+challenges. It occurred to be a huge success to have a possibility to enable projects with custom Camunda features on Azure cloud with a blink
+of an eye and it turned out to be an investment that reduced development cost significantly. Now, not only the challenge was solved but also 
+the platform exists up until today and is used by clients also for placing orders for new custom Camunda features, which also allows them to 
+be more concentrated on external vendor's particular business cases, while their casual struggle for providing custom Camunda features is not 
+theirs to worry anymore.
+
+It is fair to say that the generic platform for Camunda solutions on cloud was a huge success in the organization. To summorize:
+* the platform is easily accessible
+* it is a guidance for developers who are trying to introduce Camunda projects on cloud
+* the platform saves not only a lot of engineering effort, but an estimated cost of millions of euro
+* the presence of the platform creates developer friendly standards in the company organizations
 * the platform reduces the need of customizing Camunda through boilerplate code by using production ready solutions or solution patterns
 * this approach allows to quickly introduce highly scalable Camunda based applications on cloud without a lot of specialized knowledge
 
