@@ -1,13 +1,18 @@
 ---
-author: Michal Stefaniuk
+author: Michal Stefaniuk, Software Engineer at Devapo (www.devapo.io)
 
 # An Azure platform for quick Camunda enablement
+Nowadays many companies from banking sector are moving towards process business automation. 
+Where there is a process, a tool like Camunda could be introduced. 
+Another approach which seems to be very trendy these days would be migrating to cloud. These two solutions combined
+present a huge scale of possibilities, but as they say, with great power comes great responsibility.
 
-# Title of Post
-Start your post with a brief hook. Be conversational and personal - maybe use a brief story to
-draw the reader in.
-End your introduction with a simple statement that explains the problem you want to solve and a
-brief one or two-sentence summary of how you’re going to solve the problem.
+Introducing new tools into your architecture sometimes might be really tricky, especially if your project is already live
+in the production environment. Moving with your product to cloud might be even more challenging, as this usually it requires
+major changes in the existing implementation.
+
+Here at Devapo, as an official Camunda partner, for one of our clients from the banking sector we develop a solution, which intends to enable developer
+teams to quickly move to Azure cloud with Camunda. In this article I would like to present this concept on its technical level as well its business implications.
 
 ## Introductory Paragraph
 The body of your post provides the substance that supports your main idea or explains the
