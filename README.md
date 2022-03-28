@@ -68,7 +68,9 @@ challenges. It occurred to be a huge success to have a possibility to enable pro
 of an eye and it turned out to be an investment that reduced development cost significantly. Now, not only the challenge was solved but also 
 the platform exists up until today and is used by clients also for placing orders for new custom Camunda features, which also allows them to 
 be more concentrated on external vendor's particular business cases, while their casual struggle for providing custom Camunda features on Azure is not 
-theirs to worry anymore.
+theirs to worry anymore. One could say that this platform is extremely similar to the Camunda initializer,
+however it is enhanced with custom Camunda based features and instead of only generating the zip archive, it
+also brings your freshly generated project, and it's infrastructure to Azure. How cool is that?
 
 It is fair to say that the generic platform for Camunda solutions on cloud was a huge success in the organization. To summarize:
 * the platform is easily accessible
