@@ -58,7 +58,7 @@ gone. This approach is called IAAC (infrastructure as a code) and is a huge enab
 the client ends up with the necessary cloud infrastructure and a Spring Boot & Camunda application which is already in Azure repository,
 but in addition a client also gets to download a ZIP archive of the project.
 
-![image info](./azure.png)
+![image info](./azure_diagram.png)
 
 ## Example scenario
 
