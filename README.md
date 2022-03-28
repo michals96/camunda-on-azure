@@ -36,8 +36,11 @@ features that the platform provides are for instance
 * Camunda with process definitions stored in Azure Blob,
 * Camunda delegates with Azure Service Bus connectivity
 
-and many others. Once the platform's client chooses the particular configuration, the frontend layer communicates with the backend 
-through a http POST, that contains in it's the body all the configuration that the client chose. The backend layer is very simple - it is a Spring Boot application that implements the official Spring initializr project (https://github.com/spring-io/initializr).
+and many others.  
+
+
+## The backend does the trick
+Once the platform's client chooses the particular configuration, the frontend layer communicates with the backend through a http POST, that contains in it's the body all the configuration that the client chose. The backend layer is very simple - it is a Spring Boot application that implements the official Spring initializr project (https://github.com/spring-io/initializr).
 From a technical point of view, it contains three packages.
 * generator - contains java Beans that implement so called `contributor` classes provided by Spring intializer and they describe the way that the 
   project should be generated regarding the configuration in the HTTP Post request. It is responsible to utilize the logic on which of the custom Camunda features should
@@ -57,8 +60,18 @@ but in addition a client also gets to download a ZIP archive of the project.
 
 ![image info](./azure.png)
 
+## Example scenario
 
-## Conclusion
+Now let's try to imagine an example scenario - as a team of developers you are trying to launch another microservice in your cloud infrastructure 
+that will automate the business processing management, and it will be orchestrated by Camunda platform embedded in Spring Boot. For the sake of an example, let's imagine
+that the process will be taking care of a new customer's onboarding. At this point the usual challenge would be to adjust existing cloud infrastructure with a proper 
+configuration that will allow to enable a new instance in our already existing system. The next step, if necessary, would be to implement custom features and let's say we want
+to utilize our Camunda platform with Azure SQL database. Now the effort is significantly reduced as all it takes is to select this feature in the UI form of the enablement
+platform and then, the generated project will be enhanced with all necessary implementation for Azure SQL database support, as well as the generated pipelines will be enhanced
+with creating cloud infrastructure like the database itself, following the IaaC pattern. Now the solution is ready to be deployed (also through generated pipelines) and
+after proper adjustments - it's ready for production use. 
+
+## The platform IS a big success
   
 The business case for this platform was rather simple. In large organization of a company from banking sector, with a several dozen on developer teams, most of them
 decided to go for a business process automation with Camunda. The challenge was that most of those teams had to face similar issues,
@@ -72,6 +85,7 @@ theirs to worry anymore. One could say that this platform is extremely similar t
 however it is enhanced with custom Camunda based features and instead of only generating the zip archive, it
 also brings your freshly generated project, and it's infrastructure to Azure. How cool is that?
 
+## Conclusion
 It is fair to say that the generic platform for Camunda solutions on cloud was a huge success in the organization. To summarize:
 * the platform is easily accessible
 * it is a guidance for developers who are trying to introduce Camunda projects on cloud
