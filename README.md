@@ -65,11 +65,12 @@ but in addition a client also gets to download a ZIP archive of the project.
 Now let's try to imagine an example scenario - as a team of developers you are trying to launch another microservice in your cloud infrastructure 
 that will automate the business processing management, and it will be orchestrated by Camunda platform embedded in Spring Boot. For the sake of an example, let's imagine
 that the process will be taking care of a new customer's onboarding. At this point the usual challenge would be to adjust existing cloud infrastructure with a proper 
-configuration that will allow to enable a new instance in our already existing system. The next step, if necessary, would be to implement custom features and let's say we want
+configuration that will allow to enable a new instance of another microservice in our already existing system. The next step, if necessary, would be to implement custom features and let's say we want
 to utilize our Camunda platform with Azure SQL database. Now the effort is significantly reduced as all it takes is to select this feature in the UI form of the enablement
 platform and then, the generated project will be enhanced with all necessary implementation for Azure SQL database support, as well as the generated pipelines will be enhanced
 with creating cloud infrastructure like the database itself, following the IaaC pattern. Now the solution is ready to be deployed (also through generated pipelines) and
-after proper adjustments - it's ready for production use. 
+after proper adjustments - it's ready for production use. This is just a simple example on how developer teams are accelerated by this platform,
+when it comes to bringing Camunda to the Azure cloud.
 
 ## The platform IS a big success
   
